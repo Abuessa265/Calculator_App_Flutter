@@ -1,4 +1,4 @@
-# Adult Calculator
+# Simple Calculator
 
 The Flutter Simple Calculator Application .
 # Project Live Link
