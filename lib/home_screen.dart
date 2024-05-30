@@ -1,3 +1,4 @@
+import 'package:calculator_app/style.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,8 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 TextField(
                   controller: _numOneTEController,
-                  decoration: const InputDecoration(
-                      hintText: 'Number One ', labelText: 'Number 1'),
+                  decoration: AppInputStyle('Number One ', 'Number 1'),
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(
@@ -36,30 +36,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 TextField(
                   controller: _numTwoTEController,
-                  decoration: const InputDecoration(
-                      hintText: 'Number Two', labelText: 'Number 1'),
+                  decoration: AppInputStyle('Number Two', 'Number 1'),
                   keyboardType: TextInputType.number,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
+                Text(
+                  'Result: ${_result.toStringAsFixed(2)}',
+                  style: HeadTextStyle(),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
                 Wrap(
                   spacing: 16,
                   children: [
                     ElevatedButton.icon(
+                      style: AppButtonStyle(),
                       onPressed: () {
                         _add();
                       },
                       //onPressed: _add(),//onPressed eivabeu kora jai
-                      icon: const Icon(Icons.add),
-                      label: const Text('Add'),
+                      icon: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Add',
+                        style: ButtonTextStyle(),
+                      ),
                     ),
                     ElevatedButton.icon(
+                      style: AppButtonStyle(),
                       onPressed: () {
                         _sub();
                       },
-                      icon: const Icon(Icons.remove),
-                      label: const Text('Sub'),
+                      icon: const Icon(
+                        Icons.remove,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Sub',
+                        style: ButtonTextStyle(),
+                      ),
                     )
                   ],
                 ),
@@ -71,27 +91,37 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: WrapAlignment.start,
                   children: [
                     ElevatedButton.icon(
+                      style: AppButtonStyle(),
                       onPressed: () {
                         _multiply();
                       },
-                      icon: const Icon(Icons.star),
-                      label: const Text('Multiply'),
+                      icon: const Icon(
+                        Icons.star,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Multiply',
+                        style: ButtonTextStyle(),
+                      ),
                     ),
                     ElevatedButton.icon(
+                      style: AppButtonStyle(),
                       onPressed: () {
                         _divide();
                       },
-                      icon: const Icon(Icons.data_exploration_rounded),
-                      label: const Text('Division'),
+                      icon: const Icon(
+                        Icons.data_exploration_rounded,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Division',
+                        style: ButtonTextStyle(),
+                      ),
                     )
                   ],
                 ),
                 const SizedBox(
                   height: 20,
-                ),
-                Text(
-                  'Result: $_result',
-                  style: TextStyle(color: Colors.green),
                 ),
               ],
             ),
